@@ -1,6 +1,7 @@
 // Write a JS function that calculates the date of the previous day by given year, month, and day.
 
 function calculatepreviousDay(year, month, day){
+    
     let previousDay = day - 1;
 
     if(previousDay == 0){
