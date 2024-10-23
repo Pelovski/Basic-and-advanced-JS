@@ -1,5 +1,4 @@
 function extractText() {
-    let element = document.getElementById('items');
     let result  = document.getElementById('result');
     const items = document.querySelectorAll('#items li');
 
