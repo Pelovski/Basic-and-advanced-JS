@@ -3,9 +3,9 @@ function solve() {
 
    function onClick () {
      let textAreaElement = document.querySelector('#inputs textarea');
-     let splitedText = textAreaElement.value.split('","').map(item => item.replace(/["\[\]]/g, ''));
+     let splitedText = JSON.parse(textAreaElement.value);
 
-     let restorants = {};
+     let restaurants = {};
 
      for (const text of splitedText) {
       let data = text.split(' - ');
@@ -14,15 +14,15 @@ function solve() {
       let allSalaries = 0;
       let bestSalary = 0;
      
-      if(!restorants[restorantName]){
-         restorants[restorantName] = {};
-         restorants[restorantName].workers = [];
+      if(!restaurants[restorantName]){
+         restaurants[restorantName] = {};
+         restaurants[restorantName].workers = [];
       }
 
       for (const worker of workers) {
          let [name, salary] = worker.trim().split(' ');
          
-         restorants[restorantName].workers.push({
+         restaurants[restorantName].workers.push({
             name,
             salary: Number(salary)});
 
@@ -33,14 +33,37 @@ function solve() {
          allSalaries += Number(salary);
       }
 
-      restorants[restorantName].avrageSalary = (allSalaries / restorants[restorantName].workers.length).toFixed(2);
-      restorants[restorantName].bestSalary = bestSalary;
+      restaurants[restorantName].avrageSalary = (allSalaries / restaurants[restorantName].workers.length).toFixed(2);
+      restaurants[restorantName].bestSalary = bestSalary;
 
      }
+
+     let currentBestValue = Object.values(restaurants)[0].avrageSalary;
+     let bestValueKey = Object.keys(restaurants)[0];
+     let length = Object.keys(restaurants).length;
+
+     for (let i = 1; i < length; i++) {
+      let currentAvrageValue = Object.values(restaurants)[i].avrageSalary;
+
+      if(currentBestValue < currentAvrageValue){
+         currentBestValue = currentAvrageValue;
+         bestValueKey = Object.keys(restaurants)[i];
+      }
+     }
+
+     let bestRestaurantElement = document.querySelector('#bestRestaurant p');
+     let bestWorkersElemet = document.querySelector('#workers p');
+     let sortedWorkers = restaurants[bestValueKey].workers.sort((a, b) => b.salary - a.salary);
+     let bestWorkers = ``;
+
+     for (const worker of sortedWorkers) {
+      bestWorkers += `Name: ${worker.name} With Salary: ${worker.salary} `;
+     }
+
+    
+     bestRestaurantElement.textContent = `Name: ${bestValueKey} Average Salary: ${restaurants[bestValueKey].avrageSalary} Best Salary: ${restaurants[bestValueKey].bestSalary.toFixed(2)}`;
+     bestWorkersElemet.textContent = bestWorkers;
      
-     console.log(highestSalaryRestaurant);
-     
-      
    }
 }
 
