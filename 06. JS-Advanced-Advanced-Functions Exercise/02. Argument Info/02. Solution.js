@@ -10,3 +10,29 @@
 // Output
 // Print on the console the type and value of each argument passed into your function.
 
+function getArguments(...args){
+   let obj = {};
+   let typeCount = {};
+
+   args.forEach(arg => {
+    let key = typeof(arg);
+    if(!obj[key]){
+        obj[key] = []
+        typeCount[key] = 0;
+    }
+        obj[key].push(arg);
+        typeCount[key]++
+   });
+
+   for (let key in obj) {
+        console.log(`${key}: ${obj[key]}`);
+}
+
+Object.entries(typeCount)
+        .sort((a, b) => b[1] - a[1])
+        .forEach(([type, count]) => console.log(`${type} = ${count}`));
+   
+}
+
+getArguments('cat', 42, 53, function () { console.log('Hello world!'); })
+// input = 
