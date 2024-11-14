@@ -15,9 +15,9 @@ function solution(input, firstIndex, lastIndex){
     }
     
     let startIndex = Math.max(firstIndex, 0);
-    let endIndex = Math.min(lastIndex, input.length -1)
+    let endIndex = Math.min(lastIndex, input.length - 1)
 
   return input.slice(startIndex, endIndex +1).reduce((sum, num) => sum + num, 0);
 }
 
-console.log(solution([], 1, 2));
+export default solution;

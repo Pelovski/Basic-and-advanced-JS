@@ -1,0 +1,17 @@
+{
+  "name": "07.-unit-testing-and-error-handling-lab",
+   "type": "module",
+  "version": "1.0.0",
+  "main": "01. Sub Sum.js",
+  "scripts": {
+    "test": "mocha ./*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chai": "^5.1.2",
+    "mocha": "^10.8.2"
+  }
+}
