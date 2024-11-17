@@ -13,3 +13,8 @@ function rgbToHexColor(red, green, blue) {
         ("0" + green.toString(16).toUpperCase()).slice(-2) +
         ("0" + blue.toString(16).toUpperCase()).slice(-2);
 }
+
+console.log(rgbToHexColor(10,20,30));
+
+
+export default rgbToHexColor;
