@@ -7,7 +7,7 @@
 // o	If both parameters have correct types and values - return the character at the specified index in the string.
 
 import { expect } from "chai";
-import lookupChar from '../03. Char Lookup/03. Char Lookup.js';
+import lookupChar from '../07. JS-Advanced-Unit-Testing-and-Error-Handling-Exercise-Resources/03. Char Lookup/03. Char Lookup.js';
 
 describe('Char lookup tests', function() {
     it('Should return undefined, when first parameter is not a string', () => {

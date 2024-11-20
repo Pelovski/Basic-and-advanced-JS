@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import isOddOrEven from '../02. Even or Odd/02. Even or Odd.js';
+import isOddOrEven from '../07. JS-Advanced-Unit-Testing-and-Error-Handling-Exercise-Resources/02. Even or Odd/02. Even or Odd.js';
 
 describe('Is odd or even tests', function(){
     it('Should return undefined, when input is not a string', () => {

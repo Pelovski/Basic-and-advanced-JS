@@ -11,7 +11,7 @@
 
 
 import { expect } from "chai";
-import mathEnforcer from '../04. Math Enforcer/04. Math Enforcer.js';
+import mathEnforcer from '../07. JS-Advanced-Unit-Testing-and-Error-Handling-Exercise-Resources/04. Math Enforcer/04. Math Enforcer.js';
 
 describe('mathEnforcer', function(){
     describe('addFive',function(){
