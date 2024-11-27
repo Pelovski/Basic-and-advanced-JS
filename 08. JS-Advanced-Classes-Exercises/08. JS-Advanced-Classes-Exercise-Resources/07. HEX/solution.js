@@ -13,26 +13,28 @@ class Hex {
    }
 
     valueOf(){
-        let test = this.value.toString(16).toUpperCase()
-        return test;
+        return this.value;
    }
 
    plus(number){
-    this.value += Number(number);
-
-    let test = valueOf();
-    return this.valueOf();
+    let newValue = this.value + (number instanceof Hex ? number.valueOf() : number);
+    return new Hex(newValue);
    }
 
+    minus(number){
+        let newValue = this.value - (number instanceof Hex ? number.valueOf() : number);
+        return new Hex(newValue);
+    }
+
+    static parse(string){
+        return parseInt(string, 16);
+    }
+
     toString(){
-       return '0X' + this.valueOf();
+       return '0x' + this.value.toString(16).toUpperCase();
     }
 }
 
-let FF = new Hex(255);
-FF.valueOf() + 1 == 256;
-let a = new Hex(10);
-let b = new Hex(5);
-console.log(a.plus(b).toString());
-console.log(a.plus(b).toString()==='0xF');
-console.log(FF.parse('AAA'));
+let hex1 = new Hex(255);
+console.log(hex1 + 1);
+console.log(hex1.toString());
