@@ -25,12 +25,8 @@ render(result(cats), root);
 function showStatus(e){
     const showBtn = e.target.parentNode.querySelector('.showBtn');
     var isShowed = e.target.parentNode.querySelector('.status');  
+    var isVisible = isShowed.style.display === 'inline';
     
-    if(isShowed.style.display == 'inline'){
-        isShowed.style.display = 'none';
-       showBtn.textContent = 'Show status code'
-    }else{
-        isShowed.style.display = 'inline';
-        showBtn.textContent = 'Hide status code'
-    }
+    isShowed.style.display = isVisible ? 'none' : 'inline';
+    showBtn.textContent = isVisible ? 'Show status code' : 'Hide status code';
 }   
